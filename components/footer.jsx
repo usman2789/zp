@@ -29,7 +29,7 @@ const socialLinks = [
 
 function SocialCard({ social }) {
   return (
-    <div className="bg-[var(--card-background)] border border-[var(--border-gray)] rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-colors duration-300">
+    <div className="bg-black border border-[var(--border-gray)] rounded-xl p-4 sm:p-6 hover:bg-white/5 transition-colors duration-300">
       <div className="flex items-center justify-between mb-3 sm:mb-5">
         <div className="w-7 sm:w-8 h-7 sm:h-8 bg-white/20 rounded-full flex items-center justify-center">
           <Image 
@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
 
           {/* Social media cards - Responsive grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-14">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-14">
             {socialLinks.map((social) => (
               <SocialCard key={social.name} social={social} />
             ))}

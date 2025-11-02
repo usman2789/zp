@@ -32,7 +32,8 @@ const services = [
     title: 'Short-Form Content',
     description: 'Reels, TikToks, and Shorts that actually perform.',
     icon: '/icons/short-content.svg',
-    images: Array(5).fill('/logo.png') // 5 carousel slides using logo.png
+    images: Array(5).fill('/logo.png'),
+    youtubeVideoIds: ['_M28n7lAMcg', '2dnKCcpfeFA', '8_scdXr-QLM', 'jNQXAC9IVRw', 'dQw4w9WgXcQ'] // Add YouTube IDs
   },
   {
     id: 'long-content',
@@ -170,25 +171,38 @@ function ServiceSlider({ service, isActive, index }) {
         Always renders Splide carousel - play/pause controlled by isActive
         Carousel remains mounted even when inactive to prevent flickering or data loss
       */}
-      <div className="relative h-40 sm:h-60 md:h-80 w-full overflow-hidden">
+      <div className="relative h-30 sm:h-60 md:h-80 w-full overflow-hidden">
         <div ref={splideRef} className="splide">
           <div className="splide__track">
             <ul className="splide__list">
               {service.images.map((image, imgIndex) => (
                   <li key={imgIndex} className="splide__slide !w-auto flex justify-center">
-                  <div className="flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[89px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm">
-                    <div className="text-center px-2">
-                      <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
-                        Sample Content
+                  <div className="flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                    {service.youtubeVideoIds?.[imgIndex] ? (
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${service.youtubeVideoIds[imgIndex]}`}
+                        title={`${service.title} - Video ${imgIndex + 1}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="rounded-xl"
+                      ></iframe>
+                    ) : (
+                      <div className="text-center px-2">
+                        <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
+                          Sample Content
+                        </div>
+                        <Image
+                          src={image}
+                          alt="Service showcase"
+                          width={60}
+                          height={60}
+                          className="mx-auto opacity-80 w-8 sm:w-12 md:w-16 lg:w-auto"
+                        />
                       </div>
-                      <Image
-                        src={image}
-                        alt="Service showcase"
-                        width={60}
-                        height={60}
-                        className="mx-auto opacity-80 w-8 sm:w-12 md:w-16 lg:w-auto"
-                      />
-                    </div>
+                    )}
                   </div>
                 </li>
               ))}
@@ -253,34 +267,35 @@ export default function WhatWeDo() {
 
   return (
     <section className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* 
-        Section Header
-        Introduction to the services section with main heading and subtext
-        Centered layout with responsive typography
-      */}
-      <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
-      {/* Main section title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
-          What We Do
-        </h2>
-        
-        {/* Section description/tagline */}
-        <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
-          Powerful content services built to attract, engage, and convert.
-        </p>
-      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* 
+          Section Header
+          Introduction to the services section with main heading and subtext
+          Centered layout with responsive typography
+        */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        {/* Main section title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
+            What We Do
+          </h2>
+          
+          {/* Section description/tagline */}
+          <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
+            Powerful content services built to attract, engage, and convert.
+          </p>
+        </div>
 
-      {/* 
-        Services Display Area
-        Container for all service sliders with generous spacing
-        Each service gets its own ServiceSlider component
-        
-        Interactive Features:
-        - onMouseEnter: Manual service activation on hover
-        - pause-on-hover: Pauses carousel animation when user hovers
-        - Large vertical spacing (space-y-16 sm:space-y-32) for clear separation
-      */}
-      <div className="px-4 sm:px-6 space-y-12 sm:space-y-20 md:space-y-24">
+        {/* 
+          Services Display Area
+          Container for all service sliders with generous spacing
+          Each service gets its own ServiceSlider component
+          
+          Interactive Features:
+          - onMouseEnter: Manual service activation on hover
+          - pause-on-hover: Pauses carousel animation when user hovers
+          - Large vertical spacing (space-y-16 sm:space-y-32) for clear separation
+        */}
+        <div className="space-y-6 sm:space-y-10 md:space-y-14">
         {services.map((service, index) => (
           <div key={service.id}>
             <ServiceSlider 
@@ -292,21 +307,22 @@ export default function WhatWeDo() {
         ))}
       </div>
 
-      {/* 
-        Call-to-Action Section
-        Prominent button to encourage user engagement
-        Positioned after all services for natural flow
-        
-        Button Features:
-        - Gradient background matching brand colors
-        - Hover scale effect for interactive feedback
-        - Orange glow effect for visual appeal
-        - Responsive padding and typography
-      */}
-      <div className="text-center mt-10 sm:mt-14 md:mt-16">
-        <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-sm sm:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
-          Book a Free Call
-        </button>
+        {/* 
+          Call-to-Action Section
+          Prominent button to encourage user engagement
+          Positioned after all services for natural flow
+          
+          Button Features:
+          - Gradient background matching brand colors
+          - Hover scale effect for interactive feedback
+          - Orange glow effect for visual appeal
+          - Responsive padding and typography
+        */}
+        <div className="text-center mt-10 sm:mt-14 md:mt-16">
+          <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-sm sm:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
+            Book a Free Call
+          </button>
+        </div>
       </div>
     </section>
   );

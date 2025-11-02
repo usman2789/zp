@@ -2,11 +2,15 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-black flex flex-col items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32">
-      {/* Background decorative ellipses */}
-      <div className="absolute top-24 sm:top-48 -right-40 sm:-right-80 w-[500px] sm:w-[830px] h-[500px] sm:h-[830px] bg-gradient-to-l from-[var(--primary-orange-400)] via-transparent to-transparent opacity-20 rounded-full blur-3xl"></div>
-      <div className="absolute top-24 sm:top-48 -left-40 sm:-left-80 w-[500px] sm:w-[830px] h-[500px] sm:h-[830px] bg-gradient-to-r from-[var(--primary-orange-400)] via-transparent to-transparent opacity-20 rounded-full blur-3xl"></div>
-      
+    <section
+      className="relative min-h-screen bg-black flex flex-col items-center justify-center px-4 sm:px-6 pt-24 sm:pt-28 md:pt-32 overflow-hidden"
+      style={{
+        backgroundImage: "url('/glow/leftglow.png'), url('/glow/rightglow.png')",
+        backgroundPosition: 'left center, right center',
+        backgroundRepeat: 'no-repeat, no-repeat',
+        backgroundSize: 'clamp(240px, 45vw, 520px) 120%, clamp(240px, 45vw, 520px) 120%',
+      }}
+    >
       {/* Main content */}
       <div className="text-center max-w-6xl mx-auto w-full">
         {/* Main headline */}
@@ -15,10 +19,13 @@ export default function Hero() {
             <span className="text-[var(--primary-orange-400)] text-shadow-orange font-open-sans text-2xl sm:text-3xl md:text-5xl lg:text-6xl">[</span>
             Videos that{' '}
             <span className="text-[var(--primary-blue)]">Grow</span>
-            . Thumbnails that{' '}
-            <span className="text-[var(--primary-blue)]">Click</span>
-            . Content that{' '}
-            <span className="text-[var(--primary-blue)]">Converts</span>
+            <span className="hidden sm:inline">. Thumbnails that{' '}</span>
+            <span className="sm:hidden"><br /></span>
+            <span className="hidden sm:inline"><span className="text-[var(--primary-blue)]">Click</span>. Content that{' '}</span>
+            <span className="sm:hidden">Thumbnails that <span className="text-[var(--primary-blue)]">Click</span>.</span>
+            <span className="sm:hidden"><br /></span>
+            <span className="sm:hidden">Content that <span className="text-[var(--primary-blue)]">Convert</span></span>
+            <span className="hidden sm:inline"><span className="text-[var(--primary-blue)]">Converts</span></span>
             <span className="text-[var(--primary-orange-400)] text-shadow-orange font-open-sans text-2xl sm:text-3xl md:text-5xl lg:text-6xl">]</span>
             .
           </h1>
@@ -80,7 +87,7 @@ export default function Hero() {
       </div>
 
       {/* Hero image */}
-      <div className="relative w-full max-w-2xl sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-0">
+      <div className="relative w-full max-w-xl sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-0">
         <div className="bg-[#191919] border border-sm:border-2 border-[var(--primary-black-400)] rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-8 aspect-video flex items-center justify-center relative overflow-hidden">
           {/* Zocial Plug logo in center */}
           <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-white/10">
@@ -94,7 +101,16 @@ export default function Hero() {
         </div>
         
         {/* Shadow effect */}
-        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] h-6 sm:h-8 bg-black/50 blur-xl rounded-full"></div>
+        <div className="pointer-events-none absolute -bottom-33 sm:-bottom-14 left-1/2 -translate-x-1/2 w-[110%] max-w-[560px] sm:max-w-[720px] md:max-w-[880px]">
+          <Image
+            src="/glow/shadow.png"
+            alt=""
+            width={1100}
+            height={130}
+            priority
+            className="w-full h-auto"
+          />
+        </div>
       </div>
     </section>
   );
