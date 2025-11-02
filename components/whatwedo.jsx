@@ -175,8 +175,8 @@ function ServiceSlider({ service, isActive, index }) {
           <div className="splide__track">
             <ul className="splide__list">
               {service.images.map((image, imgIndex) => (
-                <li key={imgIndex} className="splide__slide !w-auto flex justify-center">
-                  <div className="flex-shrink-0 w-24 sm:w-64 md:w-96 lg:w-[400px] h-32 sm:h-52 md:h-72 lg:h-80 border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm">
+                  <li key={imgIndex} className="splide__slide !w-auto flex justify-center">
+                  <div className="flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[89px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm">
                     <div className="text-center px-2">
                       <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
                         Sample Content
