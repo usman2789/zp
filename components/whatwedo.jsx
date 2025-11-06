@@ -165,7 +165,9 @@ function ServiceSlider({ service, isActive }) {
               {service.youtubeVideoIds && service.youtubeVideoIds.map((videoId, slideIndex) => (
                 <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
                   {/* <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden"> */}
-                   <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-[200px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                   {/* <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-[200px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden"> */}
+                   <div className="relative flex-shrink-0 w-full aspect-[9/16] sm:w-64 sm:h-52 md:w-[450px] md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+
 
                    <iframe
                       width="100%"
