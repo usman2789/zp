@@ -81,9 +81,9 @@ export default function Hero() {
         </div>
 
         {/* CTA Button */}
-        <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-6 sm:px-10 md:px-12 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm md:text-lg hover:scale-105 transition-transform duration-200 glow-orange mb-6 sm:mb-10 md:mb-12">
+        <a href='#call' className="inline-block bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-6 sm:px-10 md:px-12 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm md:text-lg hover:scale-105 transition-transform duration-200 glow-orange mb-6 sm:mb-10 md:mb-12">
           Book a Free Call
-        </button>
+        </a>
       </div>
 
       {/* Hero media */}

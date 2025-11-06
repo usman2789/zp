@@ -58,9 +58,9 @@ export default function Process() {
 
         {/* CTA */}
         <div className="text-center mt-12 sm:mt-16 md:mt-20">
-          <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 md:px-16 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm md:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
+          <a href="#call" className="inline-block bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 md:px-16 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm md:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
             Book a Free Call
-          </button>
+          </a>
         </div>
       </div>
     </section>

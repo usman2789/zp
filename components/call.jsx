@@ -1,6 +1,6 @@
 export default function Call() {
   return (
-    <section className="bg-black py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+    <section id="call" className="bg-black py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-14">

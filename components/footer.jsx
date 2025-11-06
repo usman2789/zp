@@ -75,9 +75,9 @@ export default function Footer() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Poppins'] font-extrabold text-white mb-6 sm:mb-8 tracking-wide px-2">
               Book Your Free Call Now!
             </h2>
-            <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-['Poppins'] font-bold px-8 sm:px-16 py-3 sm:py-5 rounded-full text-sm sm:text-xl hover:scale-105 transition-transform duration-200 glow-orange">
+            <a href="#call" className="inline-block bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-['Poppins'] font-bold px-8 sm:px-16 py-3 sm:py-5 rounded-full text-sm sm:text-xl hover:scale-105 transition-transform duration-200 glow-orange">
               Book a Free Call
-            </button>
+            </a>
           </div>
 
           {/* Social media cards - Responsive grid */}

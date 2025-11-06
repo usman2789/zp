@@ -45,13 +45,13 @@ const services = [
     description: 'Scroll-stopping visuals that earn the click.',
     icon: '/icons/thumbnail.svg',
     images: [
-      '/thumbnails/1.avif',
-      '/thumbnails/2.avif',
-      '/thumbnails/3.avif',
-      '/thumbnails/4.avif',
-      '/thumbnails/5.avif',
-      '/thumbnails/6.avif',
-      '/thumbnails/7.avif',
+      '/thumbnails/1.jpg',
+      '/thumbnails/2.jpg',
+      '/thumbnails/3.jpg',
+      '/thumbnails/4.jpg',
+      '/thumbnails/5.jpg',
+      '/thumbnails/6.jpg',
+      '/thumbnails/7.jpg',
       '/thumbnails/8.jpg',
       '/thumbnails/9.jpg',
       '/thumbnails/10.jpg',
@@ -67,7 +67,6 @@ const services = [
       '/thumbnails/20.jpg',
       '/thumbnails/21.jpg',
       '/thumbnails/22.jpg'
-      
     ]
   },
   {
@@ -79,61 +78,9 @@ const services = [
   },
 ];
 
-function LiteYouTube({ videoId, title, isVisible }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!isLoaded && typeof window !== 'undefined') {
-      import('lite-youtube-embed').then(() => {
-        setIsLoaded(true);
-      });
-    }
-  }, [isLoaded]);
-
-  if (!isLoaded) {
-    return (
-      <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center">
-          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-          </svg>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <lite-youtube
-      videoid={videoId}
-      playlabel={title}
-      style={{
-        backgroundImage: `url(https://i.ytimg.com/vi/${videoId}/hqdefault.jpg)`,
-        width: '100%',
-        height: '100%',
-        borderRadius: '12px',
-      }}
-      loading={isVisible ? 'eager' : 'lazy'}
-    />
-  );
-}
-
 function ServiceSlider({ service, isActive }) {
   const splideRef = useRef(null);
   const splideInstanceRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
-    
-    if (splideRef.current) {
-      observer.observe(splideRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!splideRef.current) return;
@@ -224,18 +171,25 @@ function ServiceSlider({ service, isActive }) {
                 },
                 (_, slideIndex) => {
                   const videoId = service.youtubeVideoIds?.[slideIndex];
-                  const imageSrc = service.images?.[slideIndex % (service.images?.length || 1)] ?? '/logo.png';
+                  const imageSrc = service.images?.[slideIndex];
 
                   return (
                     <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
                       <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
                         {videoId ? (
-                          <LiteYouTube
-                            videoId={videoId}
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&showinfo=0&modestbranding=1`}
                             title={`${service.title} - Video ${slideIndex + 1}`}
-                            isVisible={isVisible && isActive}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                            className="rounded-xl"
+                            loading="lazy"
                           />
-                        ) : (
+                        ) : imageSrc ? (
                           <div className="absolute inset-0">
                             <Image
                               src={imageSrc}
@@ -244,7 +198,20 @@ function ServiceSlider({ service, isActive }) {
                               className="object-cover rounded-xl"
                               loading="lazy"
                               sizes="(max-width: 768px) 129px, (max-width: 1024px) 256px, 450px"
+                              onLoad={() => {
+                                console.log(`✅ Image loaded successfully: ${imageSrc}`);
+                              }}
+                              onError={(e) => {
+                                console.error(`❌ Failed to load image: ${imageSrc}`);
+                                e.target.style.display = 'none';
+                              }}
                             />
+                          </div>
+                        ) : (
+                          <div className="text-center px-2">
+                            <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
+                              No Content Available
+                            </div>
                           </div>
                         )}
                       </div>
@@ -294,9 +261,9 @@ export default function WhatWeDo() {
         </div>
 
         <div className="text-center mt-10 sm:mt-14 md:mt-16">
-          <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-sm sm:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
+          <a href="#call" className="inline-block bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-8 sm:px-12 py-3 sm:py-4 rounded-full text-sm sm:text-lg hover:scale-105 transition-transform duration-200 glow-orange">
             Book a Free Call
-          </button>
+          </a>
         </div>
       </div>
     </section>
