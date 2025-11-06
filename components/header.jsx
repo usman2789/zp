@@ -16,9 +16,12 @@ export default function Header() {
         </div>
 
         {/* CTA Button */}
-        <button className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-xs md:text-sm hover:scale-105 transition-transform duration-200 glow-orange whitespace-nowrap">
+        <a
+          href="#call"
+          className="bg-gradient-to-r from-[var(--primary-orange-400)] to-[var(--primary-orange-500)] text-black font-poppins font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-xs md:text-sm hover:scale-105 transition-transform duration-200 glow-orange whitespace-nowrap"
+        >
           Book a Free Call
-        </button>
+        </a>
       </div>
     </header>
   );

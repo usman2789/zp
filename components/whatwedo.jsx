@@ -17,37 +17,34 @@
  * 5. Content Strategy (Strategic planning)
  */
 
-"use client";
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { Splide } from "@splidejs/splide";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import "@splidejs/splide/css";
+'use client';
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
+import { Splide } from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/splide/css';
 
 const services = [
   {
-    id: "short-content",
-    title: "Short-Form Content",
-    description: "Reels, TikToks, and Shorts that actually perform.",
-    icon: "/icons/short-content.svg",
-    youtubeVideoIds: ['c4gmzUPHDqI', 'vbi6EyutPhs', 'd5guMcEWJ7c', 'XoHs4jayUDI', 'EMfNOAE-rDY', '4heYCtqSkZA', '9rT5-G953tg', '8aJOyNboyms', 'hxKz3VpiQEM', 'BnkVdx0t9-o', '8zFTvRpU7lI', 'MBAZVNIzUEM', 'uubxoweuudw', 'Ag1aWtXsRp8']
-,
+    id: 'short-content',
+    title: 'Short-Form Content',
+    description: 'Reels, TikToks, and Shorts that actually perform.',
+    icon: '/icons/short-content.svg',
+    youtubeVideoIds: ['c4gmzUPHDqI', 'vbi6EyutPhs', 'd5guMcEWJ7c', 'XoHs4jayUDI', 'EMfNOAE-rDY', '4heYCtqSkZA', '9rT5-G953tg', '8aJOyNboyms', 'hxKz3VpiQEM', 'BnkVdx0t9-o', '8zFTvRpU7lI', 'MBAZVNIzUEM', 'uubxoweuudw', 'Ag1aWtXsRp8'],
   },
   {
-    id: "long-content",
-    title: "Long-Form Video Editing",
-    description:
-      "Polished, story-driven edits for YouTube, podcasts, and video ads.",
-    icon: "/icons/long-content.svg",
-    youtubeVideoIds:['N2Q3Mw9LyjA', 'Zv368DPLn-Q', 'pr4-Raq_ZZU', 'cv8-RmNsqo8', 'Udl3u8LODjc', 'oaDLXh8x7YQ', 'gHYDonk3U8s', 'ZsYUZh0qyjY', 'AU1PrjWaM3c', 'a2eXEKrABwA', 'cW1hetExf_U', 'BT40h5F5aqA', 'HaaZJi_mNis', '3dKeRpJ1wQI', 'FUwAeYBKpzI', 'O52Jkh2RfEM', 'PwhX3Dl8a0w', 'BSP0LWMES-U']
-,
+    id: 'long-content',
+    title: 'Long-Form Video Editing',
+    description: 'Polished, story-driven edits for YouTube, podcasts, and video ads.',
+    icon: '/icons/long-content.svg',
+    youtubeVideoIds: ['N2Q3Mw9LyjA', 'Zv368DPLn-Q', 'pr4-Raq_ZZU', 'cv8-RmNsqo8', 'Udl3u8LODjc', 'oaDLXh8x7YQ', 'gHYDonk3U8s', 'ZsYUZh0qyjY', 'AU1PrjWaM3c', 'a2eXEKrABwA', 'cW1hetExf_U', 'BT40h5F5aqA', 'HaaZJi_mNis', '3dKeRpJ1wQI', 'FUwAeYBKpzI', 'O52Jkh2RfEM', 'PwhX3Dl8a0w', 'BSP0LWMES-U'],
   },
   {
-    id: "thumbnails",
-    title: "Thumbnail Designs",
-    description: "Scroll-stopping visuals that earn the click.",
-    icon: "/icons/thumbnail.svg",
-     images: [
+    id: 'thumbnails',
+    title: 'Thumbnail Designs',
+    description: 'Scroll-stopping visuals that earn the click.',
+    icon: '/icons/thumbnail.svg',
+    images: [
       '/thumbnails/1.avif',
       '/thumbnails/2.avif',
       '/thumbnails/3.avif',
@@ -61,7 +58,7 @@ const services = [
       '/thumbnails/11.jpg',
       '/thumbnails/12.jpg',
       '/thumbnails/13.jpg',
-      '/thumbnails/22.jpg',
+      '/thumbnails/14.jpg',
       '/thumbnails/15.jpg',
       '/thumbnails/16.jpg',
       '/thumbnails/17.jpg',
@@ -69,55 +66,106 @@ const services = [
       '/thumbnails/19.jpg',
       '/thumbnails/20.jpg',
       '/thumbnails/21.jpg',
-      '/thumbnails/22.jpg',
-      '/thumbnails/23.jpg'
+      '/thumbnails/22.jpg'
+      
     ]
-    
   },
   {
-    id: "animation",
-    title: "3D/2D Animations",
-    description:
-      "Animations that make your content stand out and explain your ideas clearly.",
-    icon: "/icons/animation.svg",
-    youtubeVideoIds:['X-IKXlYTyEQ', 'gY4fefbhI7I', 'scB7qp6YKpw', 'YaMPDn7amEo', 'P0OS4H9qal8', '9zR8Li_5JCE', 'RiKheRwPCfc', 'QNfUcQANsJI', '3fc5q5uVtyg', 'cmbPPRY33aA', 'wpA-XNNzbxI', 'xaBYCRmLzLY', 'ENI2BePG0XE']
-,
+    id: 'animation',
+    title: '3D/2D Animations',
+    description: 'Animations that make your content stand out and explain your ideas clearly.',
+    icon: '/icons/animation.svg',
+    youtubeVideoIds: ['X-IKXlYTyEQ', 'gY4fefbhI7I', 'scB7qp6YKpw', 'YaMPDn7amEo', 'P0OS4H9qal8', '9zR8Li_5JCE', 'RiKheRwPCfc', 'QNfUcQANsJI', '3fc5q5uVtyg', 'cmbPPRY33aA', 'wpA-XNNzbxI', 'xaBYCRmLzLY', 'ENI2BePG0XE'],
   },
 ];
+
+function LiteYouTube({ videoId, title, isVisible }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!isLoaded && typeof window !== 'undefined') {
+      import('lite-youtube-embed').then(() => {
+        setIsLoaded(true);
+      });
+    }
+  }, [isLoaded]);
+
+  if (!isLoaded) {
+    return (
+      <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center">
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <lite-youtube
+      videoid={videoId}
+      playlabel={title}
+      style={{
+        backgroundImage: `url(https://i.ytimg.com/vi/${videoId}/hqdefault.jpg)`,
+        width: '100%',
+        height: '100%',
+        borderRadius: '12px',
+      }}
+      loading={isVisible ? 'eager' : 'lazy'}
+    />
+  );
+}
 
 function ServiceSlider({ service, isActive }) {
   const splideRef = useRef(null);
   const splideInstanceRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    
+    if (splideRef.current) {
+      observer.observe(splideRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!splideRef.current) return;
 
     splideInstanceRef.current = new Splide(splideRef.current, {
-      type: "loop",
-      drag: "free",
-      focus: "center",
+      type: 'loop',
+      drag: 'free',
+      focus: 'center',
       perPage: 3,
-      gap: "3rem",
-      padding: "0",
+      gap: '3rem',
+      padding: '0',
       autoScroll: {
-        speed: 2,
+        speed: 1.5,
         pauseOnHover: true,
         pauseOnFocus: false,
       },
       pagination: false,
       arrows: true,
+      lazyLoad: 'nearby',
+      preloadPages: 1,
       breakpoints: {
         1024: {
           perPage: 2,
-          gap: "2rem",
+          gap: '2rem',
         },
         768: {
           perPage: 1,
-          gap: "1rem",
+          gap: '1rem',
         },
         480: {
           perPage: 1,
-          gap: "0.5rem",
+          gap: '0.5rem',
         },
       },
     });
@@ -134,9 +182,8 @@ function ServiceSlider({ service, isActive }) {
 
   useEffect(() => {
     if (!splideInstanceRef.current?.AutoScroll) return;
-
     splideInstanceRef.current.AutoScroll.play();
-   }, [isActive]);
+  }, [isActive]);
 
   return (
     <div className="relative w-full">
@@ -150,8 +197,7 @@ function ServiceSlider({ service, isActive }) {
               height={32}
               className="w-6 sm:w-8 h-6 sm:h-8 filter brightness-0 invert"
               style={{
-                filter:
-                  "brightness(0) saturate(100%) invert(48%) sepia(96%) saturate(2618%) hue-rotate(17deg) brightness(99%) contrast(101%)",
+                filter: 'brightness(0) saturate(100%) invert(48%) sepia(96%) saturate(2618%) hue-rotate(17deg) brightness(99%) contrast(101%)',
               }}
             />
           </div>
@@ -178,36 +224,26 @@ function ServiceSlider({ service, isActive }) {
                 },
                 (_, slideIndex) => {
                   const videoId = service.youtubeVideoIds?.[slideIndex];
-                  const imageSrc =
-                    service.images?.[
-                      slideIndex % (service.images?.length || 1)
-                    ] ?? "/logo.png";
+                  const imageSrc = service.images?.[slideIndex % (service.images?.length || 1)] ?? '/logo.png';
 
                   return (
-                    <li
-                      key={slideIndex}
-                      className="splide__slide !w-auto flex justify-center"
-                    >
+                    <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
                       <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
                         {videoId ? (
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src={`https://www.youtube.com/embed/${videoId}`}
+                          <LiteYouTube
+                            videoId={videoId}
                             title={`${service.title} - Video ${slideIndex + 1}`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="rounded-xl"
-                          ></iframe>
+                            isVisible={isVisible && isActive}
+                          />
                         ) : (
                           <div className="absolute inset-0">
                             <Image
                               src={imageSrc}
                               alt={`${service.title} thumbnail ${slideIndex + 1}`}
                               fill
-                              className="object-cover"
+                              className="object-cover rounded-xl"
                               loading="lazy"
+                              sizes="(max-width: 768px) 129px, (max-width: 1024px) 256px, 450px"
                             />
                           </div>
                         )}
@@ -252,10 +288,7 @@ export default function WhatWeDo() {
         <div className="space-y-6 sm:space-y-10 md:space-y-14">
           {services.map((service, index) => (
             <div key={service.id}>
-              <ServiceSlider
-                service={service}
-                isActive={activeService === index}
-              />
+              <ServiceSlider service={service} isActive={activeService === index} />
             </div>
           ))}
         </div>
