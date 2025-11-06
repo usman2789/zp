@@ -86,30 +86,22 @@ export default function Hero() {
         </button>
       </div>
 
-      {/* Hero image */}
+      {/* Hero media */}
       <div className="relative w-full max-w-[520px] sm:max-w-[680px] md:max-w-[760px] mx-auto px-4 sm:px-0">
-        <div className="bg-[#191919] border border-sm:border-2 border-[var(--primary-black-400)] rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-8 aspect-video flex items-center justify-center relative overflow-hidden">
-          {/* Zocial Plug logo in center */}
-          <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-white/10">
-            <span className="text-[var(--primary-orange-400)]/20">[</span>
-            <span className="font-poppins tracking-wider">Zocial Plug</span>
-            <span className="text-[var(--primary-orange-400)]/20">]</span>
+        <div className="bg-[#191919] border border-sm:border-2 border-[var(--primary-black-400)] rounded-lg sm:rounded-xl md:rounded-2xl p-0 overflow-hidden">
+          <div className="relative w-full pb-[56.25%]">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/hero.mp4"
+              poster="/logo.png"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
           </div>
-          
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        </div>
-        
-        {/* Shadow effect */}
-        <div className="pointer-events-none absolute -bottom-33 sm:-bottom-14 left-1/2 -translate-x-1/2 w-[110%] max-w-[560px] sm:max-w-[720px] md:max-w-[880px]">
-          <Image
-            src="/glow/shadow.png"
-            alt=""
-            width={1100}
-            height={130}
-            priority
-            className="w-full h-auto"
-          />
         </div>
       </div>
     </section>

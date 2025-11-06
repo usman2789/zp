@@ -33,36 +33,34 @@ const services = [
     description: 'Reels, TikToks, and Shorts that actually perform.',
     icon: '/icons/short-content.svg',
     images: Array(5).fill('/logo.png'),
-    youtubeVideoIds: ['_M28n7lAMcg', '2dnKCcpfeFA', '8_scdXr-QLM', 'jNQXAC9IVRw', 'dQw4w9WgXcQ'] // Add YouTube IDs
+    youtubeVideoIds: ['c4gmzUPHDqI', 'vbi6EyutPhs', 'd5guMcEWJ7c', 'XoHs4jayUDI', 'EMfNOAE-rDY'],
   },
   {
     id: 'long-content',
     title: 'Long-Form Video Editing',
     description: 'Polished, story-driven edits for YouTube, podcasts, and video ads.',
     icon: '/icons/long-content.svg',
-    images: Array(5).fill('/logo.png')
+    images: Array(5).fill('/logo.png'),
+    youtubeVideoIds: ['N2Q3Mw9LyjA', 'Zv368DPLn-Q', 'pr4-Raq_ZZU', 'cv8-RmNsqo8', 'Udl3u8LODjc', 'oaDLXh8x7YQ', 'gHYDonk3U8s', 'ZsYUZh0qyjY', 'AU1PrjWaM3c', 'a2eXEKrABwA', 'cW1hetExf_U', 'BT40h5F5aqA', 'HaaZJi_mNis', '3dKeRpJ1wQI', 'FUwAeYBKpzI', 'O52Jkh2RfEM', 'PwhX3Dl8a0w', 'BSP0LWMES-U']
   },
   {
     id: 'thumbnails',
     title: 'Thumbnail Designs',
     description: 'Scroll-stopping visuals that earn the click.',
     icon: '/icons/thumbnail.svg',
-    images: Array(5).fill('/logo.png')
+    images: Array(5).fill('/logo.png'),
+    youtubeVideoIds: [],
   },
   {
     id: 'animation',
     title: '3D/2D Animations',
     description: 'Animations that make your content stand out and explain your ideas clearly.',
     icon: '/icons/animation.svg',
-    images: Array(5).fill('/logo.png')
+    images: Array(5).fill('/logo.png'),
+    youtubeVideoIds: ['X-IKXlYTyEQ', 'gY4fefbhI7I', 'scB7qp6YKpw', 'YaMPDn7amEo', 'P0OS4H9qal8', '9zR8Li_5JCE', 'RiKheRwPCfc', 'QNfUcQANsJI', '3fc5q5uVtyg', 'cmbPPRY33aA', 'wpA-XNNzbxI', 'xaBYCRmLzLY', 'ENI2BePG0XE']
+
   },
-  {
-    id: 'strategy',
-    title: 'Content Strategy',
-    description: 'Every post, every edit — made with purpose.',
-    icon: '/icons/content.svg',
-    images: Array(5).fill('/logo.png')
-  }
+ 
 ];
 
 /**
@@ -92,7 +90,7 @@ function ServiceSlider({ service, isActive, index }) {
         pauseOnFocus: false,
       },
       pagination: false,
-      arrows: false,
+      arrows: true,
       breakpoints: {
         1024: {
           perPage: 2,
@@ -175,37 +173,52 @@ function ServiceSlider({ service, isActive, index }) {
         <div ref={splideRef} className="splide">
           <div className="splide__track">
             <ul className="splide__list">
-              {service.images.map((image, imgIndex) => (
-                  <li key={imgIndex} className="splide__slide !w-auto flex justify-center">
-                  <div className="flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
-                    {service.youtubeVideoIds?.[imgIndex] ? (
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={`https://www.youtube.com/embed/${service.youtubeVideoIds[imgIndex]}`}
-                        title={`${service.title} - Video ${imgIndex + 1}`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="rounded-xl"
-                      ></iframe>
-                    ) : (
-                      <div className="text-center px-2">
-                        <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
-                          Sample Content
-                        </div>
-                        <Image
-                          src={image}
-                          alt="Service showcase"
-                          width={60}
-                          height={60}
-                          className="mx-auto opacity-80 w-8 sm:w-12 md:w-16 lg:w-auto"
-                        />
+              {Array.from(
+                {
+                  length: Math.max(
+                    service.youtubeVideoIds?.length ?? 0,
+                    service.images?.length ?? 0,
+                    1
+                  ),
+                },
+                (_, slideIndex) => {
+                  const videoId = service.youtubeVideoIds?.[slideIndex];
+                  const imageSrc =
+                    service.images?.[slideIndex % (service.images?.length || 1)] ?? '/logo.png';
+
+                  return (
+                    <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
+                      <div className="flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                        {videoId ? (
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${videoId}`}
+                            title={`${service.title} - Video ${slideIndex + 1}`}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="rounded-xl"
+                          ></iframe>
+                        ) : (
+                          <div className="text-center px-2">
+                            <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
+                              Sample Content
+                            </div>
+                            <Image
+                              src={imageSrc}
+                              alt="Service showcase"
+                              width={60}
+                              height={60}
+                              className="mx-auto opacity-80 w-8 sm:w-12 md:w-16 lg:w-auto"
+                            />
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                </li>
-              ))}
+                    </li>
+                  );
+                }
+              )}
             </ul>
           </div>
         </div>
