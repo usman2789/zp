@@ -87,7 +87,7 @@ export default function Hero() {
       </div>
 
       {/* Hero image */}
-      <div className="relative w-full max-w-xl sm:max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-0">
+      <div className="relative w-full max-w-[520px] sm:max-w-[680px] md:max-w-[760px] mx-auto px-4 sm:px-0">
         <div className="bg-[#191919] border border-sm:border-2 border-[var(--primary-black-400)] rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-8 aspect-video flex items-center justify-center relative overflow-hidden">
           {/* Zocial Plug logo in center */}
           <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-white/10">
