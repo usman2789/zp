@@ -29,7 +29,12 @@ const socialLinks = [
 
 function SocialCard({ social }) {
   return (
-    <div className="bg-black border border-[var(--border-gray)] rounded-xl p-4 sm:p-6 hover:bg-white/5 transition-colors duration-300">
+    <a 
+      href={social.url} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block bg-black border border-[var(--border-gray)] rounded-xl p-4 sm:p-6 hover:bg-white/5 transition-colors duration-300 cursor-pointer"
+    >
       <div className="flex items-center justify-between mb-3 sm:mb-5">
         <div className="w-7 sm:w-8 h-7 sm:h-8 bg-white/20 rounded-full flex items-center justify-center">
           <Image 
@@ -58,7 +63,7 @@ function SocialCard({ social }) {
           {social.handle}
         </p>
       </div>
-    </div>
+    </a>
   );
 }
 

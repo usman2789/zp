@@ -30,6 +30,7 @@ const services = [
     title: 'Thumbnail Designs',
     description: 'Scroll-stopping visuals that earn the click.',
     icon: '/icons/thumbnail.svg',
+   
     images: [
       '/thumbnails/1.jpg',
       '/thumbnails/2.jpg',
@@ -158,18 +159,14 @@ function ServiceSlider({ service, isActive }) {
         </p>
       </div>
 
-      <div className="relative h-30 sm:h-60 md:h-80 w-full overflow-hidden">
+      <div className="relative h-56 sm:h-60 md:h-80 w-full overflow-hidden">
         <div ref={splideRef} className="splide">
           <div className="splide__track">
             <ul className="splide__list">
               {service.youtubeVideoIds && service.youtubeVideoIds.map((videoId, slideIndex) => (
                 <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
-                  {/* <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden"> */}
-                   {/* <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-[200px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden"> */}
-                   <div className="relative flex-shrink-0 w-full aspect-[9/16] sm:w-64 sm:h-52 md:w-[450px] md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
-
-
-                   <iframe
+                  <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-48 sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                    <iframe
                       width="100%"
                       height="100%"
                       src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&showinfo=0&modestbranding=1`}
@@ -187,7 +184,7 @@ function ServiceSlider({ service, isActive }) {
               
               {service.images && service.images.map((imageSrc, slideIndex) => (
                 <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
-                  <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                  <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-48 sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
                     <div className="absolute inset-0">
                       <Image
                         src={imageSrc}
