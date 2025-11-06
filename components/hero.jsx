@@ -92,7 +92,7 @@ export default function Hero() {
           <div className="relative w-full pb-[56.25%]">
             <video
               className="absolute inset-0 h-full w-full object-cover"
-              src="/hero.mp4"
+              src="/hero.webm"
               poster="/logo.png"
               autoPlay
               loop
