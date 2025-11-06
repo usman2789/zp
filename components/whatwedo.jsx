@@ -161,64 +161,41 @@ function ServiceSlider({ service, isActive }) {
         <div ref={splideRef} className="splide">
           <div className="splide__track">
             <ul className="splide__list">
-              {Array.from(
-                {
-                  length: Math.max(
-                    service.youtubeVideoIds?.length ?? 0,
-                    service.images?.length ?? 0,
-                    1
-                  ),
-                },
-                (_, slideIndex) => {
-                  const videoId = service.youtubeVideoIds?.[slideIndex];
-                  const imageSrc = service.images?.[slideIndex];
-
-                  return (
-                    <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
-                      <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
-                        {videoId ? (
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&showinfo=0&modestbranding=1`}
-                            title={`${service.title} - Video ${slideIndex + 1}`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            className="rounded-xl"
-                            loading="lazy"
-                          />
-                        ) : imageSrc ? (
-                          <div className="absolute inset-0">
-                            <Image
-                              src={imageSrc}
-                              alt={`${service.title} thumbnail ${slideIndex + 1}`}
-                              fill
-                              className="object-cover rounded-xl"
-                              loading="lazy"
-                              sizes="(max-width: 768px) 129px, (max-width: 1024px) 256px, 450px"
-                              onLoad={() => {
-                                console.log(`✅ Image loaded successfully: ${imageSrc}`);
-                              }}
-                              onError={(e) => {
-                                console.error(`❌ Failed to load image: ${imageSrc}`);
-                                e.target.style.display = 'none';
-                              }}
-                            />
-                          </div>
-                        ) : (
-                          <div className="text-center px-2">
-                            <div className="text-gray-400 font-poppins font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-4">
-                              No Content Available
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </li>
-                  );
-                }
-              )}
+              {service.youtubeVideoIds && service.youtubeVideoIds.map((videoId, slideIndex) => (
+                <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
+                  <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&showinfo=0&modestbranding=1`}
+                      title={`${service.title} - Video ${slideIndex + 1}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="rounded-xl"
+                      loading="lazy"
+                    />
+                  </div>
+                </li>
+              ))}
+              
+              {service.images && service.images.map((imageSrc, slideIndex) => (
+                <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
+                  <div className="relative flex-shrink-0 w-[129px] sm:w-64 md:w-[450px] h-[94px] sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                    <div className="absolute inset-0">
+                      <Image
+                        src={imageSrc}
+                        alt={`${service.title} thumbnail ${slideIndex + 1}`}
+                        fill
+                        className="object-cover rounded-xl"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 129px, (max-width: 1024px) 256px, 450px"
+                      />
+                    </div>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
