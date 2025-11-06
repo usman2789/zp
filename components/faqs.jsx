@@ -10,7 +10,7 @@ const faqs = [
   {
     id: 2,
     question: "What services do you offer?",
-    answer: "We handle video editing, thumbnail design, content strategy, and stream clipping. Our goal is to take the content workload off your plate so you can focus on building or streaming."
+    answer: "We handle video editing, thumbnails design, content strategy, and stream clipping. Our goal is to take the content workload off your plate so you can focus on building or streaming."
   },
   {
     id: 3,
