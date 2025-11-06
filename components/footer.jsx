@@ -11,19 +11,19 @@ const socialLinks = [
     name: 'TikTok',
     handle: '@zocialplug',
     icon: '/icons/tiktok.svg',
-    url: '#'
+    url: 'https://www.tiktok.com/@zocialplug_?_r=1&_t=ZP-91Av0FY9wBK'
   },
   {
     name: 'Instagram',
     handle: '@zocialplug',
     icon: '/icons/insta.svg',
-    url: '#'
+    url: 'https://www.instagram.com/zocialplug?igsh=a3c4bmE4aWl5ZzY2&utm_source=qr'
   },
   {
     name: 'LinkedIn',
     handle: '@zocialplug',
     icon: '/icons/linkedin.svg',
-    url: '#'
+    url: 'https://www.linkedin.com/company/zocialplug/'
   }
 ];
 
