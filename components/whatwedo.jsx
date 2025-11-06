@@ -25,21 +25,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/splide/css';
 
 const services = [
-  {
-    id: 'short-content',
-    title: 'Short-Form Content',
-    description: 'Reels, TikToks, and Shorts that actually perform.',
-    icon: '/icons/short-content.svg',
-    youtubeVideoIds: ['c4gmzUPHDqI', 'vbi6EyutPhs', 'd5guMcEWJ7c', 'XoHs4jayUDI', 'EMfNOAE-rDY', '4heYCtqSkZA', '9rT5-G953tg', '8aJOyNboyms', 'hxKz3VpiQEM', 'BnkVdx0t9-o', '8zFTvRpU7lI', 'MBAZVNIzUEM', 'uubxoweuudw', 'Ag1aWtXsRp8'],
-  },
-  {
-    id: 'long-content',
-    title: 'Long-Form Video Editing',
-    description: 'Polished, story-driven edits for YouTube, podcasts, and video ads.',
-    icon: '/icons/long-content.svg',
-    youtubeVideoIds: ['N2Q3Mw9LyjA', 'Zv368DPLn-Q', 'pr4-Raq_ZZU', 'cv8-RmNsqo8', 'Udl3u8LODjc', 'oaDLXh8x7YQ', 'gHYDonk3U8s', 'ZsYUZh0qyjY', 'AU1PrjWaM3c', 'a2eXEKrABwA', 'cW1hetExf_U', 'BT40h5F5aqA', 'HaaZJi_mNis', '3dKeRpJ1wQI', 'FUwAeYBKpzI', 'O52Jkh2RfEM', 'PwhX3Dl8a0w', 'BSP0LWMES-U'],
-  },
-  {
+   {
     id: 'thumbnails',
     title: 'Thumbnail Designs',
     description: 'Scroll-stopping visuals that earn the click.',
@@ -69,6 +55,21 @@ const services = [
       '/thumbnails/22.jpg'
     ]
   },
+  {
+    id: 'short-content',
+    title: 'Short-Form Content',
+    description: 'Reels, TikToks, and Shorts that actually perform.',
+    icon: '/icons/short-content.svg',
+    youtubeVideoIds: ['c4gmzUPHDqI', 'vbi6EyutPhs', 'd5guMcEWJ7c', 'XoHs4jayUDI', 'EMfNOAE-rDY', '4heYCtqSkZA', '9rT5-G953tg', '8aJOyNboyms', 'hxKz3VpiQEM', 'BnkVdx0t9-o', '8zFTvRpU7lI', 'MBAZVNIzUEM', 'uubxoweuudw', 'Ag1aWtXsRp8'],
+  },
+  {
+    id: 'long-content',
+    title: 'Long-Form Video Editing',
+    description: 'Polished, story-driven edits for YouTube, podcasts, and video ads.',
+    icon: '/icons/long-content.svg',
+    youtubeVideoIds: ['N2Q3Mw9LyjA', 'Zv368DPLn-Q', 'pr4-Raq_ZZU', 'cv8-RmNsqo8', 'Udl3u8LODjc', 'oaDLXh8x7YQ', 'gHYDonk3U8s', 'ZsYUZh0qyjY', 'AU1PrjWaM3c', 'a2eXEKrABwA', 'cW1hetExf_U', 'BT40h5F5aqA', 'HaaZJi_mNis', '3dKeRpJ1wQI', 'FUwAeYBKpzI', 'O52Jkh2RfEM', 'PwhX3Dl8a0w', 'BSP0LWMES-U'],
+  },
+ 
   {
     id: 'animation',
     title: '3D/2D Animations',
