@@ -89,8 +89,8 @@ function ServiceSlider({ service, isActive }) {
 
     splideInstanceRef.current = new Splide(splideRef.current, {
       type: 'loop',
-      drag: 'free',
-      focus: 'center',
+      drag: 'false',
+      focus: '0',
       autoWidth: true,
     
       gap: '1rem',
