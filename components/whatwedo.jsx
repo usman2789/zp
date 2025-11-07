@@ -89,10 +89,9 @@ function ServiceSlider({ service, isActive }) {
 
     splideInstanceRef.current = new Splide(splideRef.current, {
       type: 'loop',
-      drag: 'false',
-      focus: '0',
+      drag: 'free',
+      focus: 'center',
       autoWidth: true,
-    
       gap: '1rem',
       padding: '0',
       autoScroll: {
@@ -104,20 +103,7 @@ function ServiceSlider({ service, isActive }) {
       arrows: true,
       lazyLoad: 'nearby',
       preloadPages: 1,
-      // breakpoints: {
-      //   1024: {
-      //     perPage: 2,
-      //     gap: '2rem',
-      //   },
-      //   768: {
-      //     perPage: 1,
-      //     gap: '1rem',
-      //   },
-      //   480: {
-      //     perPage: 1,
-      //     gap: '0.5rem',
-      //   },
-      // },
+      
     });
 
     splideInstanceRef.current.mount({ AutoScroll });
@@ -183,7 +169,7 @@ function ServiceSlider({ service, isActive }) {
                 </li>
               ))}
               
-              {service.images && service.images.map((imageSrc, slideIndex) => (
+            {service.images && service.images.map((imageSrc, slideIndex) => (
   <li key={slideIndex} className="splide__slide">
     <div className="relative mx-2 min-w-[240px] sm:min-w-[280px] md:min-w-[450px] h-48 sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
       <div className="absolute inset-0">
