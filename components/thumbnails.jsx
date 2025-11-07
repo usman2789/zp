@@ -92,6 +92,14 @@ export default function Thumbnails() {
     return (
       <section className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
++         <div className="text-center mb-8 sm:mb-12 md:mb-16">
++           <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
++             Our Video Work
++           </h2>
++           <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
++             High-performance video content that drives results.
++           </p>
++         </div>
           <div className="text-center mb-6 sm:mb-12 px-2 sm:px-4">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-3 sm:mb-4">
               <div className="w-10 sm:w-14 h-10 sm:h-14 bg-[var(--primary-orange-400)]/20 rounded-full flex items-center justify-center flex-shrink-0">
@@ -114,6 +122,16 @@ export default function Thumbnails() {
   return (
     <section className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
++       {/* Main Section Header */}
++       <div className="text-center mb-8 sm:mb-12 md:mb-16">
++         <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
++           Our Video Work
++         </h2>
++         <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
++           High-performance video content that drives results.
++         </p>
++       </div>
+
         {/* Section Header */}
         <div className="text-center mb-6 sm:mb-12 px-2 sm:px-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-3 sm:mb-4">

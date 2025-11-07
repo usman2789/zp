@@ -182,14 +182,6 @@ export default function YouTube() {
     return (
       <section className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
-              Our Video Work
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
-              High-performance video content that drives results.
-            </p>
-          </div>
           <div className="space-y-6 sm:space-y-10 md:space-y-14">
             {[1, 2, 3].map((i) => (
               <div key={i} className="h-56 sm:h-60 md:h-80 bg-gray-900/20 rounded-3xl animate-pulse"></div>
@@ -203,16 +195,6 @@ export default function YouTube() {
   return (
     <section className="bg-black py-12 sm:py-16 md:py-20 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white mb-3 sm:mb-4 tracking-wide">
-            Our Video Work
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg font-inter font-medium text-white/80 max-w-4xl mx-auto px-2">
-            High-performance video content that drives results.
-          </p>
-        </div>
-
         {/* Video Sliders */}
         {videoServices.map((service) => (
           <VideoSlider key={service.id} service={service} />

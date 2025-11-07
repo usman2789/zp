@@ -13,12 +13,13 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <Header />
       <Hero />
+       <Thumbnails />
+      <YouTube />
       {/* <WhatWeDo /> */}
       <Process />
       <Call />
       <FAQs />
-      <Thumbnails />
-      <YouTube />
+     
       <Footer />
     </div>
   );
