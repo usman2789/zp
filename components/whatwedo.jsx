@@ -95,9 +95,10 @@ function ServiceSlider({ service, isActive }) {
       gap: '1rem',
       padding: '0',
       autoScroll: {
-        speed: 3,
+        speed: 1,
         pauseOnHover: true,
         pauseOnFocus: false,
+        rewind: false,
       },
       pagination: false,
       arrows: true,
