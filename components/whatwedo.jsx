@@ -91,8 +91,9 @@ function ServiceSlider({ service, isActive }) {
       type: 'loop',
       drag: 'free',
       focus: 'center',
-      perPage: 3,
-      gap: '3rem',
+      autoWidth: true,
+    
+      gap: '1rem',
       padding: '0',
       autoScroll: {
         speed: 3,
@@ -103,20 +104,20 @@ function ServiceSlider({ service, isActive }) {
       arrows: true,
       lazyLoad: 'nearby',
       preloadPages: 1,
-      breakpoints: {
-        1024: {
-          perPage: 2,
-          gap: '2rem',
-        },
-        768: {
-          perPage: 1,
-          gap: '1rem',
-        },
-        480: {
-          perPage: 1,
-          gap: '0.5rem',
-        },
-      },
+      // breakpoints: {
+      //   1024: {
+      //     perPage: 2,
+      //     gap: '2rem',
+      //   },
+      //   768: {
+      //     perPage: 1,
+      //     gap: '1rem',
+      //   },
+      //   480: {
+      //     perPage: 1,
+      //     gap: '0.5rem',
+      //   },
+      // },
     });
 
     splideInstanceRef.current.mount({ AutoScroll });
@@ -183,21 +184,22 @@ function ServiceSlider({ service, isActive }) {
               ))}
               
               {service.images && service.images.map((imageSrc, slideIndex) => (
-                <li key={slideIndex} className="splide__slide !w-auto flex justify-center">
-                  <div className="relative flex-shrink-0 w-full sm:w-64 md:w-[450px] h-48 sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
-                    <div className="absolute inset-0">
-                      <Image
-                        src={imageSrc}
-                        alt={`${service.title} thumbnail ${slideIndex + 1}`}
-                        fill
-                        className="object-cover rounded-xl"
-                        loading="lazy"
-                        sizes="(max-width: 768px) 129px, (max-width: 1024px) 256px, 450px"
-                      />
-                    </div>
-                  </div>
-                </li>
-              ))}
+  <li key={slideIndex} className="splide__slide">
+    <div className="relative mx-2 min-w-[240px] sm:min-w-[280px] md:min-w-[450px] h-48 sm:h-52 md:h-[300px] border-2 border-gray-600 rounded-2xl sm:rounded-3xl bg-gray-800/50 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src={imageSrc}
+          alt={`${service.title} thumbnail ${slideIndex + 1}`}
+          fill
+          className="object-cover rounded-xl"
+          loading="lazy"
+          sizes="(max-width: 768px) 240px, (max-width: 1024px) 280px, 450px"
+        />
+      </div>
+    </div>
+  </li>
+))}
+
             </ul>
           </div>
         </div>

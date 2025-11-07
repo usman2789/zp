@@ -81,3 +81,6 @@ body {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+.splide__slide {
+  flex: 0 0 auto !important;
+}
